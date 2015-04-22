@@ -7,7 +7,7 @@ Can convert between
 
 # example.php
 ```php
-<?php require_once 'SteamID.class.php';
+require_once 'SteamID.class.php';
 $steamid = new SteamID("76561197998515277"); // You can send a SteamID or a CommunityID when instantiating the new object
 	//$steamid = new SteamID("STEAM_0:1:19124774");
 echo $steamid->getID(); // Return SteamID
