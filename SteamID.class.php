@@ -3,20 +3,27 @@ class SteamID {
 	private $id = "";
 	private $community = "";
 	
-	public function __construct($id) {
+	public function __construct($id)
+	{
 		$this->set($id);
 	}
-	public function getCommunity() {
+	public function getCommunity()
+	{
 		return $this->community;
 	}
-	public function getID()	{
+	public function getID()
+	{
 		return $this->id;
 	}
-	public function set($id) {
-		if(strpos($id, 'STEAM')==false) { // It's a CommunityID
+	public function set($id)
+	{
+		if(strpos($id, 'STEAM')==false) 
+		{ // It's a CommunityID
 			$this->id = $this->getIDFromCommunity($id);
 			$this->community = $id;
-		} else { // It's a SteamID
+		}
+		else
+		{ // It's a SteamID
 			$this->id = $id;
 			$this->community = $this->getCommunityFromID($id);
 		}
@@ -24,11 +31,10 @@ class SteamID {
 	
 	private function getCommunityFromID($id)
 	{
-		$accountarray	=	explode(":", $id);
+		$accountarray		=	explode(":", $id);
 		$idnum			=	$accountarray[1];
 		$accountnum		=	$accountarray[2];
 		$constant		=	'76561197960265728';
-	
 		$number			=	bcadd(bcmul($accountnum, 2), bcadd($idnum, $constant)); // ($accountnum *2)  + ($idnum + $constant)
 		return $number;
 	}
@@ -37,11 +43,13 @@ class SteamID {
 		$idnum		=	'0';
 		$accnum		=	'0';
 		$constant	=	'76561197960265728';
-		if(bcmod($id, '2')==0) {
+		if(bcmod($id, '2')==0)
+		{
 			$idnum	=	'0';
 			$temp	=	bcsub($id, $constant);
 		}
-		else {
+		else
+		{
 			$idnum	=	'1';
 			$temp	=	bcsub($id,bcadd($constant, '1'));
 		}
