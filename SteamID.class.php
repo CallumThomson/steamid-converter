@@ -32,7 +32,7 @@ class SteamID {
      */
     public function set($id)
 	{
-		if(strpos($id, 'STEAM')==false) 
+		if(strpos($id, 'STEAM')===false) 
 		{ // It's a CommunityID
 			$this->id = $this->getIDFromCommunity($id);
 			$this->community = $id;
