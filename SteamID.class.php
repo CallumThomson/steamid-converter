@@ -1,46 +1,17 @@
 <?php
 class SteamID {
-	private $id = "";
-	private $community = "";
-
     /**
      * @param $id
      */
-    public function __construct($id)
-	{
-		$this->set($id);
-	}
-
-    /**
-     * @return string
-     */
-    public function getCommunity()
-	{
-		return $this->community;
-	}
-
-    /**
-     * @return string
-     */
-    public function getID()
-	{
-		return $this->id;
-	}
-
-    /**
-     * @param $id
-     */
-    public function set($id)
+    public static function convert($id)
 	{
 		if(strpos($id, 'STEAM')===false) 
 		{ // It's a CommunityID
-			$this->id = $this->getIDFromCommunity($id);
-			$this->community = $id;
+			return self::getIDFromCommunity($id);
 		}
 		else
 		{ // It's a SteamID
-			$this->id = $id;
-			$this->community = $this->getCommunityFromID($id);
+			return self::getCommunityFromID($id);
 		}
 	}
 
@@ -48,7 +19,7 @@ class SteamID {
      * @param $id
      * @return string
      */
-    private function getCommunityFromID($id)
+    private  static function getCommunityFromID($id)
 	{
 		$accountarray		=	explode(":", $id);
 		$idnum			=	$accountarray[1];
@@ -62,7 +33,7 @@ class SteamID {
      * @param $id
      * @return string
      */
-    private function getIDFromCommunity($id)
+    private static function getIDFromCommunity($id)
 	{
 		$idnum		=	'0';
 		$accnum		=	'0';
