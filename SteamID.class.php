@@ -1,7 +1,17 @@
 <?php
+/**
+ * Class SteamID
+ * Simple PHP SteamID converter class that converts between SteamID's and Steam CommunityID's
+ *
+ * @author Callum Thomson <callum@callumthomson.co.uk>
+ * @version 2.0.2
+ */
 class SteamID {
     /**
-     * @param $id
+	 * Make a decision based on the input which conversion function should be run and then call it with the data.
+	 *
+     * @param $id SteamID or CommunityID
+	 * @return string Converted ID
      */
     public static function convert($id)
 	{
@@ -16,22 +26,26 @@ class SteamID {
 	}
 
     /**
-     * @param $id
-     * @return string
+	 * Convert SteamID into a CommunityID
+	 *
+     * @param $id SteamID
+     * @return string CommunityID
      */
     private  static function getCommunityFromID($id)
 	{
-		$accountarray		=	explode(":", $id);
+		$accountarray	=	explode(":", $id);
 		$idnum			=	$accountarray[1];
 		$accountnum		=	$accountarray[2];
 		$constant		=	'76561197960265728';
-		$number			=	bcadd(bcmul($accountnum, 2), bcadd($idnum, $constant)); // ($accountnum *2)  + ($idnum + $constant)
+		$number			=	bcadd(bcmul($accountnum, 2), bcadd($idnum, $constant)); // ($accountnum *2) + ($idnum + $constant)
 		return $number;
 	}
 
     /**
-     * @param $id
-     * @return string
+	 * Convert CommunityID to SteamID
+	 *
+     * @param $id CommunityID
+     * @return string SteamID
      */
     private static function getIDFromCommunity($id)
 	{
