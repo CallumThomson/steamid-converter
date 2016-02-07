@@ -1,5 +1,5 @@
 <?php
-require_once '../SteamID.class.php';
+require_once __DIR__.'../SteamID.class.php';
 class SteamIDTest extends \PHPUnit_Framework_TestCase
 {
 	public function testCommunityFromID()
