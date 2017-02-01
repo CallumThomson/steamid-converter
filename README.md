@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/CallumThomson/steamid-converter.svg?branch=master)](https://travis-ci.org/CallumThomson/steamid-converter)
+[![Build Status](https://travis-ci.org/callumthomson/steamid-converter.svg?branch=master)](https://travis-ci.org/CallumThomson/steamid-converter)
 # steamid-converter
 PHP class to convert SteamID formats
 
