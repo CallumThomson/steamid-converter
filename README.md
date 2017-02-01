@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/callumthomson/steamid-converter.svg?branch=master)](https://travis-ci.org/CallumThomson/steamid-converter)
+[![Build Status](https://travis-ci.org/callumthomson/steamid-converter.svg?branch=master)](https://travis-ci.org/callumthomson/steamid-converter)
 # steamid-converter
 PHP class to convert SteamID formats. Useful for making authentication systems which auth via Steam's OpenID server. 
 
