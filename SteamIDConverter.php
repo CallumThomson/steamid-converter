@@ -4,9 +4,9 @@
  * Simple PHP SteamID converter class that converts between SteamID's and Steam CommunityID's
  *
  * @author Callum Thomson <callum@callumthomson.co.uk>
- * @version 2.0.2
+ * @version 3.0.0
  */
-class SteamID {
+class SteamIDConverter {
     /**
 	 * Make a decision based on the input which conversion function should be run and then call it with the data.
 	 *
